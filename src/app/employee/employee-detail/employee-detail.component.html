@@ -1,0 +1,62 @@
+<form (submit)="save()">
+  <div>
+    <mat-form-field>
+      <mat-select name="title" placeholder="Title" [(ngModel)]="employee.title">
+        <mat-option *ngFor="let title of titles" [value]="title">
+          {{ title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="First Name" name="firstname" [(ngModel)]="employee.firstname">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Last Name" name="lastname" [(ngModel)]="employee.lastname">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Phone" name="phone" type="tel" [(ngModel)]="employee.phone">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Address" name="address" [(ngModel)]="employee.address">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-select name="shirtsize" placeholder="Shirt Size" [(ngModel)]="employee.shirtsize">
+        <mat-option *ngFor="let size of shirtSizes" [value]="size">
+          {{ size }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-select name="hatsize" placeholder="Hat Size" [(ngModel)]="employee.hatsize">
+        <mat-option *ngFor="let size of hatSizes" [value]="size">
+          {{ size }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="SSN" name="ssn" [(ngModel)]="employee.ssn" pattern="^(\d{3}-?\d{2}-?\d{4})$" required>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput [(ngModel)]="employee.dob" name="dob" [matDatepicker]="picker" placeholder="Birthdate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>
